@@ -45,6 +45,16 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 <span>Kalkulator Biaya</span>
               </button>
             </div>
+
+            <div className="text-center md:text-left mt-2 pl-1 select-none animate-fadeIn">
+              <button 
+                onClick={() => onScrollToSection('daftar-harga')}
+                className="inline-flex items-center gap-2 text-xs md:text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors group cursor-pointer"
+              >
+                <span>Lihat Tabel Daftar Harga Resmi (PDF / Printable)</span>
+                <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+              </button>
+            </div>
           </div>
 
           {/* Visual card badge showcase */}

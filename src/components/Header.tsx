@@ -50,10 +50,11 @@ export default function Header({ cart, onOpenCart, onScrollToSection }: HeaderPr
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 font-medium text-slate-600 text-sm">
           <a href="#beranda" onClick={(e) => handleNavClick('beranda', e)} className="hover:text-brand-600 transition-colors">Beranda</a>
           <a href="#layanan" onClick={(e) => handleNavClick('layanan', e)} className="hover:text-brand-600 transition-colors">Layanan</a>
           <a href="#produk" onClick={(e) => handleNavClick('produk', e)} className="hover:text-brand-600 transition-colors">Katalog APAR</a>
+          <a href="#daftar-harga" onClick={(e) => handleNavClick('daftar-harga', e)} className="hover:text-brand-700 font-bold text-brand-600 bg-brand-50/50 px-2.5 py-1 rounded-full border border-brand-100 transition-colors">Daftar Harga</a>
           <a href="#kalkulator" onClick={(e) => handleNavClick('kalkulator', e)} className="hover:text-brand-600 transition-colors">Kalkulator Biaya</a>
           <a href="#kontak" onClick={(e) => handleNavClick('kontak', e)} className="hover:text-brand-600 transition-colors">Kontak Kami</a>
         </nav>
@@ -105,6 +106,7 @@ export default function Header({ cart, onOpenCart, onScrollToSection }: HeaderPr
             <a href="#beranda" onClick={(e) => handleNavClick('beranda', e)} className="hover:text-brand-600 hover:bg-slate-50 py-2 px-3 rounded-lg transition-all">Beranda</a>
             <a href="#layanan" onClick={(e) => handleNavClick('layanan', e)} className="hover:text-brand-600 hover:bg-slate-50 py-2 px-3 rounded-lg transition-all">Layanan</a>
             <a href="#produk" onClick={(e) => handleNavClick('produk', e)} className="hover:text-brand-600 hover:bg-slate-50 py-2 px-3 rounded-lg transition-all">Katalog APAR</a>
+            <a href="#daftar-harga" onClick={(e) => handleNavClick('daftar-harga', e)} className="hover:text-brand-600 hover:bg-slate-50 py-2 px-3 rounded-lg transition-all text-brand-600 font-bold bg-brand-50/40">Daftar Harga Resmi</a>
             <a href="#kalkulator" onClick={(e) => handleNavClick('kalkulator', e)} className="hover:text-brand-600 hover:bg-slate-50 py-2 px-3 rounded-lg transition-all">Kalkulator Biaya</a>
             <a href="#kontak" onClick={(e) => handleNavClick('kontak', e)} className="hover:text-brand-600 hover:bg-slate-50 py-2 px-3 rounded-lg transition-all">Kontak Kami</a>
             <div className="flex gap-2 mt-2">

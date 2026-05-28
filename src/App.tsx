@@ -14,6 +14,7 @@ import Kalkulator from './components/Kalkulator';
 import HubungiKami from './components/HubungiKami';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
+import DaftarHarga from './components/DaftarHarga';
 
 import { CartItem, MediaType, TransactionType, ContactFormInput } from './types';
 import { priceDatabase, mediaLabels } from './data';
@@ -35,6 +36,7 @@ export default function App() {
   });
 
   // UI state management
+  const [currentView, setCurrentView] = useState<'home' | 'harga'>('home');
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [toast, setToast] = useState<{
     show: boolean;
@@ -78,9 +80,27 @@ export default function App() {
 
   // Helper to coordinate smooth scroll behaviors across views
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (id === 'daftar-harga') {
+      setCurrentView('harga');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (currentView !== 'home') {
+      setCurrentView('home');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 150);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -220,43 +240,53 @@ export default function App() {
 
       {/* CORE WRAPPED CONTENT */}
       <main className="flex-grow">
-        
-        {/* HERO CORNER SEGMENTS */}
-        <Hero onScrollToSection={scrollToSection} />
+        {currentView === 'harga' ? (
+          <DaftarHarga 
+            onBack={() => {
+              setCurrentView('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onAddToCart={handleAddToCart}
+          />
+        ) : (
+          <>
+            {/* HERO CORNER SEGMENTS */}
+            <Hero onScrollToSection={scrollToSection} />
 
-        {/* CORE SERVICES DISPLAY */}
-        <Layanan />
+            {/* CORE SERVICES DISPLAY */}
+            <Layanan />
 
-        {/* COMPREHENSIVE PRODUCT CATALOGUE */}
-        <Katalog 
-          onAddToCart={handleAddToCart}
-          onSelectForCalculator={handleSelectForCalculator}
-          onSelectCategory={handleSelectCategory}
-        />
+            {/* COMPREHENSIVE PRODUCT CATALOGUE */}
+            <Katalog 
+              onAddToCart={handleAddToCart}
+              onSelectForCalculator={handleSelectForCalculator}
+              onSelectCategory={handleSelectCategory}
+            />
 
-        {/* INTERACTIVE COMPREHENSIVE PRICE ESTIMATIONS */}
-        <Kalkulator 
-          transaksi={calcTransaksi}
-          media={calcMedia}
-          size={calcSize}
-          quantity={calcQuantity}
-          onChangeTransaksi={setCalcTransaksi}
-          onChangeMedia={(m) => {
-            setCalcMedia(m);
-            if (m === 'co2') {
-              setCalcSize('2');
-            } else {
-              setCalcSize('3');
-            }
-          }}
-          onChangeSize={setCalcSize}
-          onChangeQuantity={setCalcQuantity}
-          onAddFromCalculator={handleAddFromCalculator}
-        />
+            {/* INTERACTIVE COMPREHENSIVE PRICE ESTIMATIONS */}
+            <Kalkulator 
+              transaksi={calcTransaksi}
+              media={calcMedia}
+              size={calcSize}
+              quantity={calcQuantity}
+              onChangeTransaksi={setCalcTransaksi}
+              onChangeMedia={(m) => {
+                setCalcMedia(m);
+                if (m === 'co2') {
+                  setCalcSize('2');
+                } else {
+                  setCalcSize('3');
+                }
+              }}
+              onChangeSize={setCalcSize}
+              onChangeQuantity={setCalcQuantity}
+              onAddFromCalculator={handleAddFromCalculator}
+            />
 
-        {/* INFORMATIVE MAPS CONTACT INFOS & CONSULTING FORM */}
-        <HubungiKami onFormSubmit={handleContactFormSubmit} />
-
+            {/* INFORMATIVE MAPS CONTACT INFOS & CONSULTING FORM */}
+            <HubungiKami onFormSubmit={handleContactFormSubmit} />
+          </>
+        )}
       </main>
 
       {/* LEGAL MAPS COPYRIGHTS FOOTER */}
@@ -278,7 +308,7 @@ export default function App() {
         href="https://wa.me/6285850011989?text=Halo%20CS%20FIRE%20FIGHTER,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20pengadaan%2520atau%2520isi%2520ulang%2520APAR."
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-605 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-105 group"
+        className="fixed bottom-4 md:bottom-6 right-4 md:right-6 lg:right-8 z-45 bg-emerald-500 hover:bg-emerald-605 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-105 group"
         aria-label="Chat WhatsApp CS FIRE FIGHTER"
       >
         <MessageSquare className="h-7 w-7" />
@@ -290,7 +320,7 @@ export default function App() {
       {/* FLOAT ACTION 2: FLOATING CART SHORTCUT TRACKER BUBBLE */}
       <button 
         onClick={() => setIsCartOpen(true)}
-        className="fixed bottom-24 right-6 z-40 bg-brand-600 hover:bg-brand-705 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-305 hover:scale-105 relative cursor-pointer"
+        className="fixed bottom-20 md:bottom-24 right-4 md:right-6 lg:right-8 z-45 bg-brand-600 hover:bg-brand-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-305 hover:scale-105 cursor-pointer"
         aria-label="Buka Keranjang Belanja"
       >
         <ShoppingCart className="h-6 w-6" />

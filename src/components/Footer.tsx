@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { ShieldCheck, ChevronRight, PhoneCall, Facebook, Instagram, Linkedin, Globe } from 'lucide-react';
+import { ShieldCheck, ChevronRight, PhoneCall, Instagram, Music } from 'lucide-react';
 
 interface FooterProps {
   onScrollToSection: (id: string) => void;
@@ -42,17 +42,23 @@ export default function Footer({ onScrollToSection }: FooterProps) {
           
           {/* Social media links using compatible Lucide icons */}
           <div className="flex gap-3 mt-2">
-            <a href="#facebook" className="w-10 h-10 rounded-lg bg-slate-800 hover:bg-brand-600 text-white flex items-center justify-center transition-all shadow-md" aria-label="Facebook CS Fire Fighter">
-              <Facebook className="h-5 w-5" />
+            <a 
+              href="https://www.tiktok.com/@tabungapargresik" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-lg bg-slate-800 hover:bg-[#ff0050] text-white flex items-center justify-center transition-all shadow-md group" 
+              aria-label="Tiktok CS Fire Fighter"
+            >
+              <Music className="h-5 w-5 group-hover:scale-110 transition" />
             </a>
-            <a href="#instagram" className="w-10 h-10 rounded-lg bg-slate-800 hover:bg-brand-600 text-white flex items-center justify-center transition-all shadow-md" aria-label="Instagram CS Fire Fighter">
-              <Instagram className="h-5 w-5" />
-            </a>
-            <a href="#linkedin" className="w-10 h-10 rounded-lg bg-slate-800 hover:bg-brand-600 text-white flex items-center justify-center transition-all shadow-md" aria-label="LinkedIn CS Fire Fighter">
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a href="#website" className="w-10 h-10 rounded-lg bg-slate-800 hover:bg-brand-600 text-white flex items-center justify-center transition-all shadow-md" aria-label="Website CS Fire Fighter">
-              <Globe className="h-5 w-5" />
+            <a 
+              href="https://www.instagram.com/alatpemadamapi_gresik" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-lg bg-slate-800 hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-red-500 hover:to-purple-600 text-white flex items-center justify-center transition-all shadow-md group" 
+              aria-label="Instagram CS Fire Fighter"
+            >
+              <Instagram className="h-5 w-5 group-hover:scale-110 transition" />
             </a>
           </div>
         </div>
@@ -64,6 +70,7 @@ export default function Footer({ onScrollToSection }: FooterProps) {
             <a href="#beranda" onClick={(e) => handleLinkClick('beranda', e)} className="hover:text-white transition-colors">Beranda</a>
             <a href="#layanan" onClick={(e) => handleLinkClick('layanan', e)} className="hover:text-white transition-colors">Layanan Kami</a>
             <a href="#produk" onClick={(e) => handleLinkClick('produk', e)} className="hover:text-white transition-colors">Jenis APAR</a>
+            <a href="#daftar-harga" onClick={(e) => handleLinkClick('daftar-harga', e)} className="hover:text-white transition-colors text-brand-400 font-bold">Daftar Harga Resmi</a>
             <a href="#kalkulator" onClick={(e) => handleLinkClick('kalkulator', e)} className="hover:text-white transition-colors">Kalkulator Biaya</a>
             <a href="#kontak" onClick={(e) => handleLinkClick('kontak', e)} className="hover:text-white transition-colors">Kontak Kami</a>
           </nav>

@@ -20,6 +20,15 @@ export default function HubungiKami({ onFormSubmit }: HubungiKamiProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onFormSubmit({ name, phone, subject, message });
+
+    // Format message for WhatsApp
+    const waText = `Halo CV. CS FIRE FIGHTER, saya ingin berkonsultasi:\n\n*Nama:* ${name}\n*No. Telepon/WA:* ${phone}\n*Kategori Keperluan:* ${subject}\n*Detail Pesan:* ${message}`;
+    const encodedText = encodeURIComponent(waText);
+    const waUrl = `https://wa.me/6285850011989?text=${encodedText}`;
+    
+    // Open WhatsApp link in a new tab
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+
     // Reset Form fields
     setName('');
     setPhone('');
@@ -79,7 +88,7 @@ export default function HubungiKami({ onFormSubmit }: HubungiKamiProps) {
               <div>
                 <h4 className="font-bold text-slate-900 font-outfit text-base">Alamat Email</h4>
                 <p className="text-slate-500 text-sm mt-0.5 leading-relaxed">
-                  Fireprotection@csfirefighter.com
+                  dharmawanwisnu113@gmail.com
                 </p>
               </div>
             </div>
@@ -88,22 +97,22 @@ export default function HubungiKami({ onFormSubmit }: HubungiKamiProps) {
 
           {/* Working Operating Hours Widget */}
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-            <h4 className="font-bold text-slate-900 font-outfit mb-3 flex items-center gap-2">
+            <h4 className="font-bold text-slate-900 font-outfit mb-4 flex items-center gap-2">
               <Clock className="h-5 w-5 text-brand-600" /> 
               <span>Jam Operasional Layanan</span>
             </h4>
-            <div className="text-slate-600 text-sm space-y-2">
-              <div className="flex justify-between border-b border-slate-100 pb-1.5">
-                <span>Senin - Jumat</span>
-                <span className="font-semibold text-slate-900">08:00 - 17:00</span>
+            <div className="text-slate-600 text-sm space-y-2.5">
+              <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+                <span className="font-semibold text-slate-700">Senin - Sabtu</span>
+                <span className="font-black text-slate-950 font-mono bg-slate-100 px-2.5 py-1 rounded-lg">07.00 - 16.00</span>
               </div>
-              <div className="flex justify-between border-b border-slate-100 pb-1.5">
-                <span>Sabtu</span>
-                <span className="font-semibold text-slate-900">08:00 - 13:00</span>
+              <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+                <span className="font-semibold text-slate-400">Minggu</span>
+                <span className="font-bold text-red-600 font-mono bg-red-50/70 px-2.5 py-1 rounded-lg">Tutup</span>
               </div>
-              <div className="flex justify-between text-brand-600 font-bold">
-                <span>Minggu (Gawat Darurat)</span>
-                <span>Buka 24 Jam</span>
+              <div className="text-[11px] text-amber-600 bg-amber-50/50 border border-amber-100 p-2.5 rounded-xl font-medium leading-relaxed mt-2">
+                <p className="font-semibold text-amber-700">Catatan Operasional:</p>
+                Pada hari libur nasional (seperti Hari Lahir Pancasila), jam operasional mungkin berbeda atau tutup.
               </div>
             </div>
           </div>
