@@ -62,8 +62,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 {/* Product image representation with referral policy */}
                 <div className="my-4 flex justify-center items-center h-48 rounded-2xl overflow-hidden relative group">
                   <img 
-                    src="https://images.unsplash.com/photo-1618519764620-7403abdbfee9?auto=format&fit=crop&w=600&q=80" 
-                    alt="Tabung Pemadam Api CS Fire Fighter" 
+                    src="/siaga_apar.png" 
+                    alt="Rumah & Kantor Siaga APAR bersama CS" 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
