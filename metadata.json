@@ -1,0 +1,6 @@
+{
+  "name": "CS Fire Fighter",
+  "description": "Spesialis Penjualan & Isi Ulang Alat Pemadam Api Ringan (APAR) berkualitas tinggi, bersertifikat K3, dan bergaransi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
