@@ -31,15 +31,19 @@ export default function Header({ cart, onOpenCart, onScrollToSection }: HeaderPr
         
         {/* Logo Brand */}
         <a href="#beranda" onClick={(e) => handleNavClick('beranda', e)} className="flex items-center gap-3 group">
-          <div className="relative bg-gradient-to-br from-brand-600 to-brand-700 text-white p-2.5 rounded-xl shadow-md shadow-brand-600/20 group-hover:scale-105 transition-all">
-            <ShieldCheck className="h-6 w-6" />
-            <Flame className="h-4.5 w-4.5 absolute -top-1 -right-1 text-orange-300 animate-pulse" />
+          <div className="relative flex items-center justify-center bg-slate-50 border border-slate-100 p-1 rounded-xl shadow-sm group-hover:scale-105 transition-all w-11 h-11 shrink-0 overflow-hidden">
+            <img 
+              src="/logo.png" 
+              alt="CV. CS FIRE FIGHTER" 
+              className="w-full h-full object-contain" 
+              referrerPolicy="no-referrer"
+            />
           </div>
           <div>
-            <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tight block font-outfit uppercase">
+            <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tight block font-outfit uppercase leading-none">
               CS <span className="text-brand-600">Fire Fighter</span>
             </span>
-            <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase block -mt-1">
+            <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase block mt-1 leading-none">
               Safety & Fire Protection
             </span>
           </div>

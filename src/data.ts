@@ -123,7 +123,7 @@ export const productCatalog: ProductCatalogItem[] = [
     originalPrice: 250000,
     badge: 'Pilihan Mobil',
     subTypeLabel: 'Dry Chemical Powder',
-    imgUrl: '/apar_1kg',
+    imgUrl: '/powder.png',
     benefits: ['Sangat pas untuk Mobil & Dapur', 'Termasuk Bracket & Sabuk Pengaman']
   },
   {
@@ -135,7 +135,7 @@ export const productCatalog: ProductCatalogItem[] = [
     originalPrice: 350000,
     badge: 'Produk Terlaris',
     subTypeLabel: 'Dry Powder - Standard Office',
-    imgUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80',
+    imgUrl: '/powder.png',
     benefits: ['Standar Kantor, Ruko & Gudang', 'Sertifikasi K3 & Hanger Dinding Gratis']
   },
   {
@@ -147,7 +147,7 @@ export const productCatalog: ProductCatalogItem[] = [
     originalPrice: 570000,
     badge: 'Proteksi Panel',
     subTypeLabel: 'CO2 - Electrical Hazard',
-    imgUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80',
+    imgUrl: '/co2.png',
     benefits: ['Terbaik untuk Panel Listrik & Server', 'Tanpa Ampas, Residu & Karat']
   },
   {
@@ -159,7 +159,7 @@ export const productCatalog: ProductCatalogItem[] = [
     originalPrice: 600000,
     badge: 'Terbaik Dapur',
     subTypeLabel: 'Foam AFFF - Kitchen & Liquids',
-    imgUrl: 'https://images.unsplash.com/photo-1516216628859-9bccecad13fa?auto=format&fit=crop&w=500&q=80',
+    imgUrl: '/foam.png',
     benefits: ['Sangat Efektif untuk Minyak & Cairan', 'Serta Bahan Padat Kertas/Kain']
   },
   {
@@ -171,7 +171,7 @@ export const productCatalog: ProductCatalogItem[] = [
     originalPrice: 1150000,
     badge: 'Teknologi Tinggi',
     subTypeLabel: 'Gas Liquid - Premium Clean',
-    imgUrl: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=500&q=80',
+    imgUrl: '/gas.png',
     benefits: ['Pengganti Halon Ramah Lingkungan', 'Aman untuk Alat Elektronik Presisi']
   }
 ];
@@ -183,7 +183,7 @@ export const categoryCards = [
     title: 'Dry Chemical Powder',
     badge: 'Sangat Populer',
     classes: 'Kelas Api: A, B, C',
-    imgUrl: 'https://images.unsplash.com/photo-1518112391111-a54cf394931f?auto=format&fit=crop&w=500&q=80',
+    imgUrl: '/powder.png',
     desc: 'Bahan powder serbaguna untuk memadamkan kebakaran akibat material padat non-logam, cairan mudah terbakar, serta korsleting listrik. Ideal untuk rumah, ruko, toko, kantor, dan kendaraan.'
   },
   {
@@ -192,7 +192,7 @@ export const categoryCards = [
     title: 'Carbon Dioxide (CO2)',
     badge: 'Proteksi IT',
     classes: 'Kelas Api: B, C',
-    imgUrl: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=500&q=80',
+    imgUrl: '/co2.png',
     desc: 'Pemadam gas bersih yang tidak meninggalkan residu ampas atau kotoran. Sangat tepat untuk ruang komputer/server, panel distribusi listrik, lab, laboratorium, dan ruang gawat medis.'
   },
   {
@@ -201,7 +201,7 @@ export const categoryCards = [
     title: 'Foam AFFF (Busa)',
     badge: 'Khusus Cairan',
     classes: 'Kelas Api: A, B',
-    imgUrl: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=500&q=80',
+    imgUrl: '/foam.png',
     desc: 'Menyelimuti benda cair yang mudah terbakar seperti bensin, solar, alkohol, atau minyak masak sehingga pasokan oksigen terputus. Paling direkomendasikan untuk SPBU, dapur komersial, pabrik, dan industri.'
   },
   {
@@ -210,7 +210,7 @@ export const categoryCards = [
     title: 'Clean Agent Gas Liquid',
     badge: 'Ramah Lingkungan',
     classes: 'Kelas Api: A, B, C',
-    imgUrl: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=500&q=80',
+    imgUrl: '/gas.png',
     desc: 'Agen pembersih gas cair premium ramah lingkungan pengganti Halon. Menghentikan kebakaran tanpa meninggalkan sisa kimiawi, aman untuk mesin kapal, server vital, kelistrikan, dan peralatan telekomunikasi.'
   }
 ];

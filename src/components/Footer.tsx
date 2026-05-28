@@ -24,8 +24,13 @@ export default function Footer({ onScrollToSection }: FooterProps) {
         {/* BRAND & SOCIAL MEDIA BLOCK */}
         <div className="md:col-span-4 flex flex-col gap-4">
           <div className="flex items-center gap-2.5">
-            <div className="bg-brand-600 text-white p-2.5 rounded-lg shadow-md shadow-brand-500/20">
-              <ShieldCheck className="h-5 w-5" />
+            <div className="bg-white border border-slate-800 p-1 rounded-lg shadow-sm w-10 h-10 overflow-hidden flex items-center justify-center shrink-0">
+              <img 
+                src="/logo.png" 
+                alt="CV. CS FIRE FIGHTER" 
+                className="w-full h-full object-contain" 
+                referrerPolicy="no-referrer"
+              />
             </div>
             <span className="text-lg font-extrabold text-white tracking-tight font-outfit uppercase">
               CS FIRE FIGHTER
