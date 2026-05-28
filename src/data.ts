@@ -123,7 +123,7 @@ export const productCatalog: ProductCatalogItem[] = [
     originalPrice: 250000,
     badge: 'Pilihan Mobil',
     subTypeLabel: 'Dry Chemical Powder',
-    imgUrl: 'https://images.unsplash.com/photo-1618519764620-7403abdbfee9?auto=format&fit=crop&w=500&q=80',
+    imgUrl: 'apar_1kg',
     benefits: ['Sangat pas untuk Mobil & Dapur', 'Termasuk Bracket & Sabuk Pengaman']
   },
   {
