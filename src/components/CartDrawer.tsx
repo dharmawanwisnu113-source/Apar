@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { ShoppingBag, X, Trash2, ShieldCheck, ShoppingCart, CreditCard } from 'lucide-react';
+import { ShoppingBag, X, Trash2, ShieldCheck, ShoppingCart, CreditCard, Copy, Check } from 'lucide-react';
 import { CartItem } from '../types';
 
 interface CartDrawerProps {
@@ -27,6 +27,19 @@ export default function CartDrawer({
   onScrollToCatalog
 }: CartDrawerProps) {
   const [paymentMethod, setPaymentMethod] = useState<string>('COD (Bayar di Tempat saat Antar/Jemput)');
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyAccount = () => {
+    navigator.clipboard.writeText('0888777132')
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+  };
   
   if (!isOpen) return null;
 
@@ -208,10 +221,62 @@ export default function CartDrawer({
                 className="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-2 text-xs text-slate-800 font-semibold focus:border-brand-500 focus:outline-none transition cursor-pointer"
               >
                 <option value="COD (Bayar di Tempat saat Antar/Jemput)">COD (Bayar di Tempat saat Antar/Jemput)</option>
-                <option value="Transfer Bank (BCA / Mandiri / BRI / BNI)">Transfer Bank (BCA / Mandiri / BRI / BNI)</option>
+                <option value="Transfer Bank BCA (No. Rek: 0888777132)">Transfer Bank BCA (No. Rek: 0888777132)</option>
                 <option value="Bayar Tunai / Cash Langsung di Kantor">Bayar Tunai / Cash Langsung di Kantor</option>
-                <option value="Sistem Tempo / Invoice (Khusus Instansi & Perusahaan)">Sistem Tempo / Invoice (Instansi & Perusahaan)</option>
               </select>
+
+              {paymentMethod.includes('Transfer Bank BCA') && (
+                <div className="mt-2.5 bg-slate-50 border border-slate-200 p-3.5 rounded-xl text-xs text-slate-900 flex flex-col gap-2.5 animate-fadeIn">
+                  <div className="flex justify-between items-center pb-2 border-b border-slate-100">
+                    <div className="flex items-center gap-1.5">
+                      <span className="bg-blue-600 text-white font-extrabold px-2 py-0.5 rounded text-[10px] uppercase font-mono tracking-wide">BCA</span>
+                      <span className="font-bold text-slate-800 text-xs">Transfer Bank BCA</span>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-2.5 rounded-lg border border-slate-150 flex items-center justify-between shadow-xs">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">No. Rekening</span>
+                      <span className="font-mono text-[13px] font-black text-slate-900 tracking-wide">0888777132</span>
+                    </div>
+                    <button
+                      onClick={handleCopyAccount}
+                      className={`flex items-center gap-1 px-2.5 py-1.5 rounded-md text-[11px] font-bold transition duration-200 select-none cursor-pointer ${
+                        copied 
+                          ? 'bg-emerald-50 text-emerald-600 border border-emerald-200' 
+                          : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 active:scale-95'
+                      }`}
+                    >
+                      {copied ? (
+                        <>
+                          <Check className="h-3 w-3 shrink-0" />
+                          <span>Tersalin!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="h-3 w-3 shrink-0" />
+                          <span>Salin No. Rek</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="text-slate-600 leading-relaxed text-xs">
+                    <div className="flex justify-between">
+                      <span className="font-medium text-slate-500">Atas Nama:</span>
+                      <span className="font-bold text-slate-800">CV. CS FIRE FIGHTER</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-1 bg-amber-50/70 border border-amber-200 p-2.5 rounded-lg text-amber-800 text-[11px] font-medium leading-relaxed flex gap-2">
+                    <div className="shrink-0 text-amber-500 font-bold">⚠️</div>
+                    <div>
+                      <p className="font-bold text-amber-900 mb-0.5">Penting (Sertakan Bukti Transfer):</p>
+                      Mohon lampirkan atau kirimkan <strong className="text-amber-950 font-extrabold">bukti transfer</strong> saat berkonsultasi/konfirmasi pesanan via WhatsApp agar transaksi Anda dapat segera diproses.
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="space-y-2 mt-1">

@@ -14,15 +14,16 @@ interface HubungiKamiProps {
 export default function HubungiKami({ onFormSubmit }: HubungiKamiProps) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [company, setCompany] = useState('');
   const [subject, setSubject] = useState('Isi Ulang APAR');
   const [message, setMessage] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onFormSubmit({ name, phone, subject, message });
+    onFormSubmit({ name, phone, subject, message, company });
 
     // Format message for WhatsApp
-    const waText = `Halo CV. CS FIRE FIGHTER, saya ingin berkonsultasi:\n\n*Nama:* ${name}\n*No. Telepon/WA:* ${phone}\n*Kategori Keperluan:* ${subject}\n*Detail Pesan:* ${message}`;
+    const waText = `Halo CV. CS FIRE FIGHTER, saya ingin berkonsultasi:\n\n*Nama:* ${name}\n*Perusahaan/Pribadi/Toko:* ${company || '-'}\n*No. Telepon/WA:* ${phone}\n*Kategori Keperluan:* ${subject}\n*Detail Pesan:* ${message}`;
     const encodedText = encodeURIComponent(waText);
     const waUrl = `https://wa.me/6285850011989?text=${encodedText}`;
     
@@ -32,6 +33,7 @@ export default function HubungiKami({ onFormSubmit }: HubungiKamiProps) {
     // Reset Form fields
     setName('');
     setPhone('');
+    setCompany('');
     setSubject('Isi Ulang APAR');
     setMessage('');
   };
@@ -151,6 +153,20 @@ export default function HubungiKami({ onFormSubmit }: HubungiKamiProps) {
                   className="bg-slate-50 border border-slate-300 focus:border-brand-500 focus:outline-none rounded-xl px-4 py-3 text-slate-800 transition-all font-medium" 
                 />
               </div>
+            </div>
+
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="formCompany" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                Nama Perusahaan / Pribadi / Toko
+              </label>
+              <input 
+                type="text" 
+                id="formCompany" 
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                placeholder="Contoh: CV. Berjaya Makmur / Rumah Siska / Toko Barokah..." 
+                className="bg-slate-50 border border-slate-300 focus:border-brand-500 focus:outline-none rounded-xl px-4 py-3 text-slate-800 transition-all font-medium" 
+              />
             </div>
 
             <div className="flex flex-col gap-1.5">

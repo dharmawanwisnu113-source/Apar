@@ -38,4 +38,5 @@ export interface ContactFormInput {
   phone: string;
   subject: string;
   message: string;
+  company?: string;
 }
